@@ -1,0 +1,63 @@
+<html>
+<body>
+<head>
+  <style type="text/css">
+  body {background-color: yellow}
+  </style>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type"text/javascript">
+
+  
+  function myclick()
+  {
+    link = "<a href='p_of_s_v.rmvb'>here</a>";
+    $("div.divlink").html("</br>"+link);
+    $("p.firstparagraph").slideUp("slow");
+  }
+
+  function closeclick()
+  {
+    $("p.firstparagraph").slideUp("slow");
+  }
+ 
+  $(document).ready(function(){
+    browserv = $.browser.version
+    browser =  $.browser
+    link = "<a href='http://www.mozilla.com/en-US/firefox/all-beta.html'>Download(Firefox 3)<a></br>"
+    imgf = "<img src='http://lists.freebsd.org/icons/powerlogo.gif'/></br>"
+    if ($.browser.mozilla){
+        $("p.firstparagraph").html("Your Firefo version: ");
+        $("p.firstparagraph").append(browserv);
+        $("p.firstparagraph").append("</br>Please upgrade your Firefox</br></br>");
+        $("p.firstparagraph").append(link);
+        <!-- $("p.firstparagraph").append(imgp); -->
+        $("p.firstparagraph").append(imgf);
+
+    }
+    else {
+        comments = "Please try not to use IE.</br> Use sleek Firefox and be sexy~</br></br>"
+
+        imgp = "<img src='http://lists.freebsd.org/icons/PythonPowered.png'/></br>"
+
+        $("p.firstparagraph").html(comments);
+        $("p.firstparagraph").append(link);
+        <!-- $("p.firstparagraph").append(imgp); -->
+        $("p.firstparagraph").append(imgf);
+    }
+   });
+  </script>
+
+   <div style="background-color:orange">
+   <div class="moreinfo">  <p class="firstparagraph">laasdfasdfasdfasdfsadfa</br>
+  </p></div>
+  <input type="button" value="click"
+	 onclick="myclick()" />
+  <!-- <input type="button" value="closeclick"
+         onclick="closeclick()" /> -->
+  <div class="divlink" >
+  </div>
+
+  </div>
+
+</body>
+</html>

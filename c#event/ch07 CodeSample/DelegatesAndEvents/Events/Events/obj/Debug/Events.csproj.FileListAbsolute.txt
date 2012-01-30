@@ -1,0 +1,5 @@
+k:\ProC#\DelegatesAndEvents\Events\Events\bin\Debug\Events.exe
+k:\ProC#\DelegatesAndEvents\Events\Events\bin\Debug\Events.pdb
+k:\ProC#\DelegatesAndEvents\Events\Events\obj\Debug\ResolveAssemblyReference.cache
+k:\ProC#\DelegatesAndEvents\Events\Events\obj\Debug\Events.exe
+k:\ProC#\DelegatesAndEvents\Events\Events\obj\Debug\Events.pdb

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://helloworld/locale/hello.dtd">
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+        title="&title.label;">
+
+<script type="text/javascript">
+//alert("hihiasdfasf");
+//var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);  
+//var win = wm.getMostRecentWindow("window");  
+//if (win) alert("ok");
+//else alert("not ok");
+//alert(win.content.title);
+</script>
+
+<hbox align="center">
+  <description flex="1">&separate.label;</description>
+  <button label="&close.label;" oncommand="close();"/>
+</hbox>
+
+</window>

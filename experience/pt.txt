@@ -1,0 +1,5 @@
+Expression	Meaning
+*p++ or *(p++)	Value of expression is *p before increment; increment p later
+(*p)++	        Value of expression is *p before increment; increment *p later
+*++p or *(++p)  Value of expression is *p after increment; increment p first
+++*p or ++(*p)  value of expression is *p after increment; increment *p first

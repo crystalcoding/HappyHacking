@@ -1,0 +1,18 @@
+function aa(){
+   var doc = jetpack.tabs.focused.contentDocument;  
+   //$(doc).find("img").remove();
+   $(doc).find("img:eq(0)").remove();
+   jetpack.notifications.show();
+   
+    
+}
+
+jetpack.statusBar.append({
+  html: "Boom<i>!</i>",
+  width: 45,
+  onReady: function(widget){
+    $(widget).click(function(){
+       aa();
+    });
+  }
+});

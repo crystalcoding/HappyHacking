@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1213900705 source:c:\documents and settings\gchen\desktop\myconsole\main.cpp
+	<iostream>
+	"node.h"
+
+1213903494 
+
+1213903059 c:\documents and settings\gchen\desktop\myconsole\node.h
+
+1213903030 source:c:\documents and settings\gchen\desktop\myconsole\node.cc
+	<iostream>
+	"node.h"
+
+1213903379 source:c:\documents and settings\gchen\desktop\myconsole\list.cc
+	"list.h"
+	"node.h"
+
+1213903494 c:\documents and settings\gchen\desktop\myconsole\list.h
+	"node.h"
+
+1213939281 source:/home/bps/Desktop/myconsole/list.cc
+	<iostream>
+	"list.h"
+	"node.h"
+
+1213938670 /home/bps/Desktop/myconsole/list.h
+	"node.h"
+
+1213939281 /home/bps/Desktop/myconsole/node.h
+
+1213939941 source:/home/bps/Desktop/myconsole/main.cpp
+	<iostream>
+	"node.h"
+	"list.h"
+
+1213939281 source:/home/bps/Desktop/myconsole/node.cc
+	<iostream>
+	"node.h"
+
+1214091760 source:/usr/home/bps/mixtools/experience/linked-list/list.cc
+	<iostream>
+	"list.h"
+	"node.h"
+
+1214023580 /usr/home/bps/mixtools/experience/linked-list/list.h
+	"node.h"
+
+1214090176 /usr/home/bps/mixtools/experience/linked-list/node.h
+
+1214070878 source:/usr/home/bps/mixtools/experience/linked-list/main.cpp
+	<iostream>
+	"node.h"
+	"list.h"
+
+1214090176 source:/usr/home/bps/mixtools/experience/linked-list/node.cc
+	<iostream>
+	"node.h"
+

@@ -1,0 +1,32 @@
+<html>
+<body>
+
+<script language="javascript" type="text/javascript">
+  //initialize array
+  var arr = new Array();
+  var i;  
+  for (i=0;i<52;++i)
+     arr[i]=i+1;
+  
+  //Knuth's shuffle
+  for (i=arr.length-1;i>0;--i)
+  {
+     ran_index = Math.floor((Math.random() * 10) % (i+1));
+     
+     var temp = arr[i];
+     arr[i] = arr[ran_index];
+     arr[ran_index] = temp
+  }
+
+
+  //print the cards out
+  for (i=0;i<52;++i)
+  {
+     if (i%10 == 0)
+        document.write("<br/>");
+     document.write(arr[i]);
+     document.write(",");
+  }
+</script>
+
+</body></html>

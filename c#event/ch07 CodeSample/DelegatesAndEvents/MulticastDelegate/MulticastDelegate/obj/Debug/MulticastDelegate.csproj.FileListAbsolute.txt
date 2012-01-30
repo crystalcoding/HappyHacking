@@ -1,0 +1,5 @@
+K:\ProC#\DelegatesAndEvents\MulticastDelegate\MulticastDelegate\obj\Debug\MulticastDelegate.exe
+K:\ProC#\DelegatesAndEvents\MulticastDelegate\MulticastDelegate\obj\Debug\MulticastDelegate.pdb
+K:\ProC#\DelegatesAndEvents\MulticastDelegate\MulticastDelegate\bin\Debug\MulticastDelegate.exe
+K:\ProC#\DelegatesAndEvents\MulticastDelegate\MulticastDelegate\bin\Debug\MulticastDelegate.pdb
+K:\ProC#\DelegatesAndEvents\MulticastDelegate\MulticastDelegate\obj\Debug\ResolveAssemblyReference.cache

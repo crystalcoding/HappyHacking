@@ -1,0 +1,5 @@
+bin\Debug\MulticastIterate.exe
+bin\Debug\MulticastIterate.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\MulticastIterate.exe
+obj\Debug\MulticastIterate.pdb

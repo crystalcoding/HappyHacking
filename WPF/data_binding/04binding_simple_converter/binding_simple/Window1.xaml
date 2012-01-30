@@ -1,0 +1,23 @@
+﻿<Window x:Class="binding_simple.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="300" Width="300"
+    
+    
+    xmlns:MyConverter="clr-namespace:binding_simple"
+    > <!-- set the namespace so it can find out type -->
+    
+    <Window.Resources>
+        <MyConverter:BackgroundConverter x:Key="BackgroundConverterResourceKey" />
+    </Window.Resources>
+    <Grid>
+        <StackPanel DataContext="{Binding ElementName=myScrollBar}">            
+            <TextBlock HorizontalAlignment="Center"><ContentControl Content="Binding And Converter" ></ContentControl></TextBlock>
+            <Label Name="myLabel" Content="{Binding Path=Value}" /> 
+            <Button  FontSize="{Binding Path=Value}" 
+                     Background="{Binding Path=Value, Converter={StaticResource BackgroundConverterResourceKey}}"  Content="I can grow or shrink!" Height="90" />
+            <ScrollBar Name="myScrollBar" Maximum="100" Orientation="Horizontal"></ScrollBar>
+
+        </StackPanel>
+    </Grid>
+</Window>

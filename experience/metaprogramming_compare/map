@@ -1,0 +1,351 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+environ             0x8               /usr/lib/crt1.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /usr/lib/crt1.o
+LOAD /usr/lib/crti.o
+LOAD /usr/lib/crtbegin.o
+LOAD /var/tmp//cc1joQDi.o
+LOAD /usr/lib/libstdc++.so
+LOAD /usr/lib/libm.so
+LOAD /usr/lib/libgcc_s.so
+LOAD /usr/lib/libgcc.a
+LOAD /usr/lib/libc.so
+LOAD /usr/lib/libgcc_s.so
+LOAD /usr/lib/libgcc.a
+LOAD /usr/lib/crtend.o
+LOAD /usr/lib/crtn.o
+                0x0000000000400000                PROVIDE (__executable_start, 0x400000)
+                0x00000000004001c8                . = (0x400000 + SIZEOF_HEADERS)
+
+.interp         0x00000000004001c8       0x15
+ *(.interp)
+ .interp        0x00000000004001c8       0x15 /usr/lib/crt1.o
+
+.note.ABI-tag   0x00000000004001e0       0x18
+ .note.ABI-tag  0x00000000004001e0       0x18 /usr/lib/crt1.o
+
+.hash           0x00000000004001f8       0x54
+ *(.hash)
+ .hash          0x00000000004001f8       0x54 /usr/lib/crt1.o
+
+.dynsym         0x0000000000400250      0x180
+ *(.dynsym)
+ .dynsym        0x0000000000400250      0x180 /usr/lib/crt1.o
+
+.dynstr         0x00000000004003d0      0x107
+ *(.dynstr)
+ .dynstr        0x00000000004003d0      0x107 /usr/lib/crt1.o
+
+.gnu.version    0x00000000004004d8       0x20
+ *(.gnu.version)
+ .gnu.version   0x00000000004004d8       0x20 /usr/lib/crt1.o
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r  0x00000000004004f8       0x50
+ *(.gnu.version_r)
+ .gnu.version_r
+                0x00000000004004f8       0x50 /usr/lib/crt1.o
+
+.rel.dyn
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+
+.rela.dyn       0x0000000000400548       0x18
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+ .rela.bss      0x0000000000400548       0x18 /usr/lib/crt1.o
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt       0x0000000000400560       0xf0
+ *(.rela.plt)
+ .rela.plt      0x0000000000400560       0xf0 /usr/lib/crt1.o
+
+.init           0x0000000000400650       0x13
+ *(.init)
+ .init          0x0000000000400650        0x4 /usr/lib/crti.o
+                0x0000000000400650                _init
+ .init          0x0000000000400654        0x5 /usr/lib/crtbegin.o
+ .init          0x0000000000400659        0x5 /usr/lib/crtend.o
+ .init          0x000000000040065e        0x5 /usr/lib/crtn.o
+
+.plt            0x0000000000400664       0xb0
+ *(.plt)
+ .plt           0x0000000000400664       0xb0 /usr/lib/crt1.o
+                0x0000000000400674                _ZNSt8ios_base4InitC1Ev@@GLIBCXX_3.4
+                0x0000000000400684                _ZNSolsEi@@GLIBCXX_3.4
+                0x0000000000400694                __cxa_atexit@@FBSD_1.0
+                0x00000000004006a4                _init_tls@@FBSD_1.0
+                0x00000000004006b4                _ZNKSs4sizeEv@@GLIBCXX_3.4
+                0x00000000004006c4                exit@@FBSD_1.0
+                0x00000000004006d4                atexit@@FBSD_1.0
+                0x00000000004006e4                __gxx_personality_v0@@CXXABI_1.3
+                0x00000000004006f4                _ZNSt8ios_base4InitD1Ev@@GLIBCXX_3.4
+                0x0000000000400704                _ZNKSsixEm@@GLIBCXX_3.4
+
+.text           0x0000000000400720      0x358
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000000400720       0x9c /usr/lib/crt1.o
+                0x0000000000400720                _start
+ *fill*         0x00000000004007bc        0x4 90909090
+ .text          0x00000000004007c0       0x62 /usr/lib/crtbegin.o
+ *fill*         0x0000000000400822        0xe 90909090
+ .text          0x0000000000400830      0x1d3 /var/tmp//cc1joQDi.o
+                0x00000000004009e0                main
+ *fill*         0x0000000000400a03        0xd 90909090
+ .gnu.linkonce.t._ZSt3minImERKT_S2_S2_
+                0x0000000000400a10       0x37 /var/tmp//cc1joQDi.o
+                0x0000000000400a10                unsigned long const& std::min<unsigned long>(unsigned long const&, unsigned long const&)
+ *fill*         0x0000000000400a47        0x9 90909090
+ .text          0x0000000000400a50       0x25 /usr/lib/crtend.o
+ *fill*         0x0000000000400a75        0x3 90909090
+ *(.gnu.warning)
+
+.fini           0x0000000000400a78        0xe
+ *(.fini)
+ .fini          0x0000000000400a78        0x4 /usr/lib/crti.o
+                0x0000000000400a78                _fini
+ .fini          0x0000000000400a7c        0x5 /usr/lib/crtbegin.o
+ .fini          0x0000000000400a81        0x5 /usr/lib/crtn.o
+                0x0000000000400a86                PROVIDE (__etext, .)
+                0x0000000000400a86                PROVIDE (_etext, .)
+                0x0000000000400a86                PROVIDE (etext, .)
+
+.rodata         0x0000000000400a86       0x93
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.1
+                0x0000000000400a86        0x1 /usr/lib/crt1.o
+ .rodata        0x0000000000400a87       0x49 /usr/lib/crti.o
+ .rodata        0x0000000000400ad0       0x49 /usr/lib/crtn.o
+
+.rodata1
+ *(.rodata1)
+
+.eh_frame_hdr   0x0000000000400b1c        0x8
+ *(.eh_frame_hdr)
+ .eh_frame_hdr  0x0000000000400b1c        0x8 /usr/lib/crt1.o
+                                          0x0 (size before relaxing)
+                0x0000000000400b24                . = (ALIGN (0x100000) - ((0x100000 - .) & 0xfffff))
+                0x0000000000501000                . = (0x100000 DATA_SEGMENT_ALIGN 0x1000)
+                0x0000000000501000                . = ALIGN (0x8)
+                0x0000000000501000                PROVIDE (__preinit_array_start, .)
+
+.preinit_array
+ *(.preinit_array)
+                0x0000000000501000                PROVIDE (__preinit_array_end, .)
+                0x0000000000501000                PROVIDE (__init_array_start, .)
+
+.init_array
+ *(.init_array)
+                0x0000000000501000                PROVIDE (__init_array_end, .)
+                0x0000000000501000                PROVIDE (__fini_array_start, .)
+
+.fini_array
+ *(.fini_array)
+                0x0000000000501000                PROVIDE (__fini_array_end, .)
+
+.data           0x0000000000501000       0x1c
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000000501000        0x8 /usr/lib/crt1.o
+                0x0000000000501000                __progname
+ .data          0x0000000000501008       0x10 /usr/lib/crtbegin.o
+                0x0000000000501008                __dso_handle
+ .data          0x0000000000501018        0x4 /var/tmp//cc1joQDi.o
+
+.data1
+ *(.data1)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.eh_frame       0x0000000000501020      0x1a8
+ *(.eh_frame)
+ .eh_frame      0x0000000000501020       0x40 /usr/lib/crt1.o
+ .eh_frame      0x0000000000501060       0x30 /usr/lib/crtbegin.o
+                                         0x48 (size before relaxing)
+ .eh_frame      0x0000000000501090      0x100 /var/tmp//cc1joQDi.o
+ .eh_frame      0x0000000000501190       0x38 /usr/lib/crtend.o
+
+.gcc_except_table
+ *(.gcc_except_table)
+
+.dynamic        0x00000000005011c8      0x1c0
+ *(.dynamic)
+ .dynamic       0x00000000005011c8      0x1c0 /usr/lib/crt1.o
+                0x00000000005011c8                _DYNAMIC
+
+.ctors          0x0000000000501388       0x18
+ *crtbegin*.o(.ctors)
+ .ctors         0x0000000000501388        0x8 /usr/lib/crtbegin.o
+ *(EXCLUDE_FILE(*crtend*.o) .ctors)
+ .ctors         0x0000000000501390        0x8 /var/tmp//cc1joQDi.o
+ *(SORT(.ctors.*))
+ *(.ctors)
+ .ctors         0x0000000000501398        0x8 /usr/lib/crtend.o
+
+.dtors          0x00000000005013a0       0x10
+ *crtbegin*.o(.dtors)
+ .dtors         0x00000000005013a0        0x8 /usr/lib/crtbegin.o
+ *(EXCLUDE_FILE(*crtend*.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+ .dtors         0x00000000005013a8        0x8 /usr/lib/crtend.o
+
+.jcr            0x00000000005013b0        0x8
+ *(.jcr)
+ .jcr           0x00000000005013b0        0x8 /usr/lib/crtend.o
+
+.got            0x00000000005013b8       0x68
+ *(.got.plt)
+ .got.plt       0x00000000005013b8       0x68 /usr/lib/crt1.o
+                0x00000000005013b8                _GLOBAL_OFFSET_TABLE_
+ *(.got)
+                0x0000000000501420                _edata = .
+                0x0000000000501420                PROVIDE (edata, .)
+                0x0000000000501420                __bss_start = .
+
+.bss            0x0000000000501420      0x120
+ *(.dynbss)
+ *fill*         0x0000000000501420        0x0 00
+ .dynbss        0x0000000000501420      0x110 /usr/lib/crt1.o
+                0x0000000000501420                _ZSt4cout@@GLIBCXX_3.4
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x0000000000501530        0x1 /usr/lib/crtbegin.o
+ *fill*         0x0000000000501531        0x3 00
+ .bss           0x0000000000501534        0x1 /var/tmp//cc1joQDi.o
+ *fill*         0x0000000000501535        0x3 00
+ *(COMMON)
+ COMMON         0x0000000000501538        0x8 /usr/lib/crt1.o
+                                          0x0 (size before relaxing)
+                0x0000000000501538                environ
+                0x0000000000501540                . = ALIGN (0x8)
+                0x0000000000501540                . = ALIGN (0x8)
+                0x0000000000501540                _end = .
+                0x0000000000501540                PROVIDE (end, .)
+                0x0000000000501540                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000      0x131
+ *(.comment)
+ .comment       0x0000000000000000       0xbf /usr/lib/crt1.o
+ .comment       0x00000000000000bf       0x26 /usr/lib/crtbegin.o
+ .comment       0x00000000000000e5       0x26 /var/tmp//cc1joQDi.o
+ .comment       0x000000000000010b       0x26 /usr/lib/crtend.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000       0x40
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x40 /var/tmp//cc1joQDi.o
+
+.debug_pubnames
+                0x0000000000000000       0x2b
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x0000000000000000       0x2b /var/tmp//cc1joQDi.o
+
+.debug_info     0x0000000000000000     0xbfd6
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000     0xbfd6 /var/tmp//cc1joQDi.o
+
+.debug_abbrev   0x0000000000000000      0x936
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000      0x936 /var/tmp//cc1joQDi.o
+
+.debug_line     0x0000000000000000      0x3fd
+ *(.debug_line)
+ .debug_line    0x0000000000000000      0x3fd /var/tmp//cc1joQDi.o
+
+.debug_frame    0x0000000000000000      0x100
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000      0x100 /var/tmp//cc1joQDi.o
+
+.debug_str      0x0000000000000000      0x907
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0x907 /var/tmp//cc1joQDi.o
+
+.debug_loc      0x0000000000000000      0x214
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000      0x214 /var/tmp//cc1joQDi.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+/DISCARD/
+ *(.note.GNU-stack)
+OUTPUT(a.out elf64-x86-64)

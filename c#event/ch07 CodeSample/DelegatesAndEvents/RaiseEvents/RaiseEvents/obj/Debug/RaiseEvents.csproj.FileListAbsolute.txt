@@ -1,0 +1,8 @@
+K:\ProC#\DelegatesAndEvents\RaiseEvents\RaiseEvents\obj\Debug\RaiseEvents.exe
+K:\ProC#\DelegatesAndEvents\RaiseEvents\RaiseEvents\obj\Debug\RaiseEvents.pdb
+K:\ProC#\DelegatesAndEvents\RaiseEvents\RaiseEvents\bin\Debug\RaiseEvents.exe
+K:\ProC#\DelegatesAndEvents\RaiseEvents\RaiseEvents\bin\Debug\RaiseEvents.pdb
+K:\ProC#\DelegatesAndEvents\RaiseEvents\RaiseEvents\obj\Debug\ResolveAssemblyReference.cache
+K:\ProC#\DelegatesAndEvents\RaiseEvents\RaiseEvents\obj\Debug\Wrox.ProCSharp.Delegates.Form1.resources
+K:\ProC#\DelegatesAndEvents\RaiseEvents\RaiseEvents\obj\Debug\Wrox.ProCSharp.Delegates.Properties.Resources.resources
+K:\ProC#\DelegatesAndEvents\RaiseEvents\RaiseEvents\obj\Debug\RaiseEvents.csproj.GenerateResource.Cache

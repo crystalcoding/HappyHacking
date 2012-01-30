@@ -1,0 +1,5 @@
+K:\ProC#\DelegatesAndEvents\AnonymousMethods\AnonymousMethods\obj\Debug\AnonymousMethods.exe
+K:\ProC#\DelegatesAndEvents\AnonymousMethods\AnonymousMethods\obj\Debug\AnonymousMethods.pdb
+K:\ProC#\DelegatesAndEvents\AnonymousMethods\AnonymousMethods\bin\Debug\AnonymousMethods.exe
+K:\ProC#\DelegatesAndEvents\AnonymousMethods\AnonymousMethods\bin\Debug\AnonymousMethods.pdb
+K:\ProC#\DelegatesAndEvents\AnonymousMethods\AnonymousMethods\obj\Debug\ResolveAssemblyReference.cache

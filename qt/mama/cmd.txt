@@ -1,0 +1,8 @@
+browser
+C:\\Program Files\\Mozilla Firefox\\firefox.exe,http://www.youtube.com.tw
+news
+C:\\Program Files\\Mozilla Firefox\\firefox.exe,http://tw.news.yahoo.com
+email
+C:\\Program Files\\Mozilla Firefox\\firefox.exe,http://hotmail.com
+movie
+explorer,E:\video\cartoon

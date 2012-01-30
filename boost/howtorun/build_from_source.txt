@@ -1,0 +1,22 @@
+For Windows:
+1. download boost library, for example, boost_1.3.6
+2. extract to a directory sometiong like yourdrive\something\boost_1_36_0\, this will be the boost root
+3. we need bjam.exe. download bjam, extract it, run build.bat, this will create bjam.exe, put it into boost root
+4. bjam.exe will run boost.build, so we need to download boost.build
+5. download boost.build, extract to our boost root
+6. using cmd prompt, go to boost root, ask bjam.exe to run boost.build, for example, 
+
+E:\boost\boost_1_36_0> bjam ^
+More? --build-dir="E:\boost\boost_1_36_0\myboost" ^
+More? --toolset=msvc --build-type=complete stage
+
+7. before run bjam, you can check the boost web page for options about building libraries you want. For example, debug, static, multi-thread
+8. libraries and headers will be ready in the build directory you specify in bjam
+
+9. now we can compile c++ with boost library, for example, under visual studio command prompt 
+cl /EHsc /I "e:\boost\boost_1_36_0" myprogram.cc /link /LIBPATH:"e:\boost\boost_1_36_0\stage\lib\"
+
+For Linux:
+1. download source
+2. configure (also enjoy various build options)
+3. make install

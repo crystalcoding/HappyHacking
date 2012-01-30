@@ -1,0 +1,1 @@
+cl /EHsc /I "c:\Program Files\boost\boost_1_35_0" example.cpp /link /LIBPATH:"C:\Program Files\boost\boost_1_35_0\lib"

@@ -1,0 +1,5 @@
+C:\ProCSharp\DelegatesAndEvents\BubbleSorter\BubbleSorter\obj\Debug\BubbleSorter.exe
+C:\ProCSharp\DelegatesAndEvents\BubbleSorter\BubbleSorter\obj\Debug\BubbleSorter.pdb
+C:\ProCSharp\DelegatesAndEvents\BubbleSorter\BubbleSorter\bin\Debug\BubbleSorter.exe
+C:\ProCSharp\DelegatesAndEvents\BubbleSorter\BubbleSorter\bin\Debug\BubbleSorter.pdb
+C:\ProCSharp\DelegatesAndEvents\BubbleSorter\BubbleSorter\obj\Debug\ResolveAssemblyReference.cache

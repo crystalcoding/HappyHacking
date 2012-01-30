@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="http://glenn.chen02.googlepages.com/monkey.css" type="text/css">
+<link rel="stylesheet" href="http://glenn.chen02.googlepages.com/main.css" type="text/css">
+<link rel="SHORTCUT ICON" href="http://glenn.chen02.googlepages.com/redapple.ico" >
+
+You've given "{{idea.title}}" one vote.</br>
+"{{idea.title}}" now have 
+{% ifequal idea.vote 1 %}
+    {{idea.vote}}&nbsp;vote.
+{% else %}
+    {{idea.vote}}&nbsp;votes.
+{% endifequal %}
+
+<br/>
+<a href="/idea/">Go back</a>
+

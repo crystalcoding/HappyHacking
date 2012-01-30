@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="http://glenn.chen02.googlepages.com/monkey.css" type="text/css">
+<body style="background-image:url(http://glenn.chen02.googlepages.com/line5.gif)">
+{% if error %}
+    <div id="title_bar">
+    <div id="title">Not Posted.</div><br/>
+    </div>
+    Please give your idea a short title.<br/><br/>
+
+    <a href="/idea/post">go back</a>
+
+{% else %}
+    <div id="title_bar">
+    <div id="title">Thank you.</div>
+    </div>
+{% endif %}
+<br/>
+<br/>
+<a href="/idea/comment/{{idea_id}}">go back</a>
+
+</body>

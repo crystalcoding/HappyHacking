@@ -1,0 +1,5 @@
+K:\ProC#\DelegatesAndEvents\SimpleDelegate\SimpleDelegate\obj\Debug\SimpleDelegate.exe
+K:\ProC#\DelegatesAndEvents\SimpleDelegate\SimpleDelegate\obj\Debug\SimpleDelegate.pdb
+K:\ProC#\DelegatesAndEvents\SimpleDelegate\SimpleDelegate\bin\Debug\SimpleDelegate.exe
+K:\ProC#\DelegatesAndEvents\SimpleDelegate\SimpleDelegate\bin\Debug\SimpleDelegate.pdb
+K:\ProC#\DelegatesAndEvents\SimpleDelegate\SimpleDelegate\obj\Debug\ResolveAssemblyReference.cache
