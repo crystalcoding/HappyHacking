@@ -13,8 +13,19 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        bball.cpp
+        bball.cpp \
+    team.cpp \
+    match.cpp \
+    round.cpp \
+    division.cpp
 
-HEADERS  += bball.h
+HEADERS  += bball.h \
+    team.h \
+    match.h \
+    round.h \
+    division.h \
+    utils.h
 
 FORMS    += bball.ui
+
+QMAKE_CXXFLAGS +=-std=c++0x

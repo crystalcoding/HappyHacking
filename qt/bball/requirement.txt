@@ -1,0 +1,5 @@
+A division has N teams. (N is <= 10 ?)
+1. a round consist of N/2 games
+2. a round should fit into a week?
+3. need N - 1 round for everyone to play with each other once
+
