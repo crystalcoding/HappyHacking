@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EquityPro Property Calculator</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script> 
+  <script>
+    var app = angular.module("EquityProPropertyApp", []);
+    app.controller("propertyController", function($scope) {
+      //Initialization
+      $scope.rental_income = 0;
+      $scope.after_repair_value = 0;
+      $scope.twelve_months = 12; //TODO: use provider or config
+
+      //expense
+      $scope.investor_price = 0;
+      $scope.closing_costs_to_buy = 0;
+      $scope.rehab_projection = 0;
+      $scope.property_insurance = 0;
+      $scope.utilities = 0;
+      $scope.closing_costs_to_sell = 0;
+      $scope.realtor_commission = 0;
+
+      //annual expense
+      $scope.property_insurance_annual = 0;
+      $scope.estimated_taxes_annual = 0;
+      $scope.property_management = 0;
+      $scope.maintenance = 0; 
+      $scope.hoa_dues = 0;
+
+      //equity score
+      $scope.quality_of_comparables = 2;
+      $scope.occupancy_status = 2;
+      $scope.level_of_rehab = 2;
+      $scope.location_of_neighborhood = 2;
+      $scope.quality_of_floor_plan = 2;
+      $scope.school_rating = 1;
+      $scope.placement_of_neighborhood = 1;
+      $scope.flip_rent_type = '';
+
+      $scope.expense = function() {
+        return $scope.investor_price + $scope.closing_costs_to_buy + $scope.rehab_projection + $scope.property_insurance + $scope.utilities + $scope.closing_costs_to_sell + $scope.realtor_commission;
+      }
+
+      $scope.annual_expense = function() {
+        return $scope.property_insurance_annual + $scope.estimated_taxes_annual + $scope.property_management + $scope.maintenance + $scope.hoa_dues;
+      }
+
+      $scope.one_time_expense = function() {
+        return $scope.investor_price + $scope.closing_costs_to_buy + $scope.rehab_projection + $scope.property_insurance + $scope.utilities;
+      }
+
+      $scope.projected_income = function() {
+        return $scope.twelve_months * $scope.rental_income - $scope.annual_expense();
+      }
+
+      $scope.total_projected_profit = function() {
+        return $scope.after_repair_value - $scope.expense();
+      }
+    
+      $scope.total_equity_score = function() {
+        return $scope.quality_of_comparables + $scope.occupancy_status + $scope.level_of_rehab +  $scope.location_of_neighborhood + $scope.quality_of_floor_plan + $scope.school_rating + $scope.placement_of_neighborhood;
+      }
+
+      $scope.flip_or_rent_equity_score = function () {
+        if ($scope.flip_rent_type == 'flip') {
+          return $scope.total_equity_score() - $scope.occupancy_status;
+        } 
+
+        if ($scope.flip_rent_type == 'rent') {
+          return $scope.total_equity_score() - $scope.quality_of_comparables; 
+        } 
+
+        return $scope.total_equity_score();
+      }
+    });
+  </script>
+</head>
+<body>
+
+<div ng-app="EquityProPropertyApp" ng-controller="propertyController" class="container">
+
+<div class="table-responsive">
+<table class="table table-striped">
+  <tr>
+    <td><b>Total projected profit</b></td>
+    <td>=</td>
+    <td>After repair value</td>
+    <td>-</td>
+    <td>Expense</td>
+  </tr>
+  <tr>
+    <td><p>{{total_projected_profit()}}</p></td>
+    <td>=</td>
+    <td><input type="number" ng-model="after_repair_value" style='width:{{"after_repair_value".length/2}}em;' class="form-control"></td>
+    <td>-</td>
+    <td>{{expense()}}</td>
+  </tr>
+</table>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped">
+  <tr>
+    <td><b>Expense</b></td>
+    <td>=</td>
+    <td>Investor Price</td>
+    <td>+</td>
+    <td>Closing costs to buy</td>
+    <td>+</td>
+    <td>Rehab projection</td>
+    <td>+</td>
+    <td>Property insurance</td>
+    <td>+</td>
+    <td>Utilities</td>
+    <td>+</td>
+    <td>Closing costs to sell</td>
+    <td>+</td>
+    <td>Realtor commission</td>
+  </tr>
+
+  <tr>
+    <td>{{expense()}}</td>
+    <td>=</td>
+    <td><input type="number" ng-model="investor_price" style='width:{{"investor_price".length/2}}em;' class="form-control"></td>
+    <td>+</td>
+    <td><input type="number" ng-model="closing_costs_to_buy" style='width:{{"closing_costs_to_buy".length/2}}em;' class="form-control"></td>
+    <td>+</td>
+    <td><input type="number" ng-model="rehab_projection" style='width:{{"rehab_projection".length/2}}em;' class="form-control"></td>
+    <td>+</td>
+    <td><input type="number" ng-model="property_insurance" style='width:{{"property_insurance".length/2}}em;' class="form-control"></td>
+    <td>+</td>
+    <td><input type="number" ng-model="utilities" style='width:{{"utilities".length/2}}em;' class="form-control"></td>
+    <td>+</td>
+    <td><input type="number" ng-model="closing_costs_to_sell" style='width:{{"closing_costs_to_sell".length/2}}em;' class="form-control"></td>
+    <td>+</td>
+    <td><input type="number" ng-model="realtor_commission" style='width:{{"realtor_commission".length/2}}em;' class="form-control"></td>
+  </tr>
+</table>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped">
+  <tr>
+    <td><b>One-time expense</b></td>
+    <td>=</td>
+    <td>Investor Price</td>
+    <td>+</td>
+    <td>Closing costs to buy</td>
+    <td>+</td>
+    <td>Rehab projection</td>
+    <td>+</td>
+    <td>Property insurance</td>
+    <td>+</td>
+    <td>Utilities</td>
+  </tr>
+  <tr>
+    <td>{{one_time_expense()}}</td>
+    <td>=</td>
+    <td>{{investor_price}}</td>
+    <td>+</td>
+    <td>{{closing_costs_to_buy}}</td>
+    <td>+</td>
+    <td>{{rehab_projection}}</td>
+    <td>+</td>
+    <td>{{property_insurance}}</td>
+    <td>+</td>
+    <td>{{utilities}}</td>
+  </tr>
+</table>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped">
+  <tr>
+    <td><b>Projected income (yearly)</b></td>
+    <td>=</td>
+    <td>Monthly Rental income</td>
+    <td>-</td>
+    <td>Annual expense</td>
+  </tr>
+  <tr>
+    <td>{{projected_income()}}</td>
+    <td>=</td>
+    <td><input type="number" ng-model="rental_income" style='width:{{"rental_income".length/2}}em;' class="form-control"></td>
+    <td>-</td>
+    <td>{{annual_expense()}}</td>
+  </tr>
+</table>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped">
+  <tr>
+    <td><b>Annual expense</b></td>
+    <td>=</td>
+    <td>Property insurance annual</td>
+    <td>+</td>
+    <td>Estimated taxes annual</td>
+    <td>+</td>
+    <td>Property management</td>
+    <td>+</td>
+    <td>Maintenance</td>
+    <td>+</td>
+    <td>HOA dues</td>
+  </tr>
+
+  <tr>
+    <td>{{annual_expense()}}</td>
+    <td>=</td>
+    <td><input type="number" ng-model="property_insurance_annual" style='width:{{"property_insurance_annual".length/2}}em;' class="form-control"></td>
+    <td>+</td>
+    <td><input type="number" ng-model="estimated_taxes_annual" style='width:{{"estimated_taxes_annual".length/2}}em;' class="form-control"></td>
+    <td>+</td>
+    <td><input type="number" ng-model="property_management" style='width:{{"property_management".length/2}}em;' class="form-control"></td>
+    <td>+</td>
+    <td><input type="number" ng-model="maintenance" style='width:{{"maintenance".length/2}}em;' class="form-control"></td>
+    <td>+</td>
+    <td><input type="number" ng-model="hoa_dues" style='width:{{"hoa_dues".length/2}}em;' class="form-control"></td>
+  </tr>
+</table>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped text-primary">
+  <tr>
+    <td><b>ROI</b></td>
+    <td>=</td>
+    <td>Total Projected Profit</td>
+    <td> &#247; </td>
+    <td>Expense</td>
+  </tr>
+
+  <tr>
+    <td>{{ total_projected_profit() / expense()}} </td>
+    <td>=</td>
+    <td>{{total_projected_profit()}}</td>
+    <td> &#247; </td>
+    <td>{{expense()}}</td>
+    
+  </tr>
+</table>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped text-success">
+    <tr>
+      <td><b>Net Annual Yield</b></td>
+      <td>=</td>
+      <td>Projected income (yearly)</td>
+      <td> &#247; </td>
+      <td>One-time expense</td>
+    </tr>
+    <tr>
+      <td>{{ projected_income() / one_time_expense()}}</td>
+      <td>=</td>
+      <td>{{ projected_income()}}</td>
+      <td> &#247; </td>
+      <td>{{one_time_expense()}}</td>
+    </tr>
+  </table>
+</div>
+
+
+<div class="table-responsive">
+  <table class="table table-striped text-warning">
+    <tr>
+      <td><b>Equity Score (all)</b></td>
+      <td>=</td>
+      <td>Quality of Comparables (2-20)</td>
+      <td>+</td>
+      <td>Occupancy Status (2-20)</td>
+      <td>+</td>
+      <td>Level of rehab (2-20)</td>
+      <td>+</td>
+      <td>Location of neighborhood (2-20)</td>
+      <td>+</td>
+      <td>Quality of floor plan (2-20)</td>
+      <td>+</td>
+      <td>School rating (1-10)</td>
+      <td>+</td>
+      <td>Placement of neighborhood (1-10)</td>
+    </tr>
+    <tr>
+      <td><b>{{total_equity_score()}}</b></td>
+      <td>=</td>
+      <td><input type="number" ng-model="quality_of_comparables" min="2" max="20" style='width:{{"quality_of_comparables".length/2}}em;' class="form-control"></td>
+      <td>+</td>
+      <td><input type="number" ng-model="occupancy_status" min="2" max="20" style='width:{{"occupancy_status".length/2}}em;' class="form-control"></td>
+      <td>+</td>
+      <td><input type="number" ng-model="level_of_rehab" min="2" max="20" style='width:{{"level_of_rehabs".length/2}}em;' class="form-control"></td>
+      <td>+</td>
+      <td><input type="number" ng-model="location_of_neighborhood" min="2" max="20" style='width:{{"location_of_neighborhood".length/2}}em;' class="form-control"></td>
+      <td>+</td>
+      <td><input type="number" ng-model="quality_of_floor_plan" min="2" max="20" style='width:{{"quality_of_floor_plan".length/2}}em;' class="form-control"></td>
+      <td>+</td>
+      <td><input type="number" ng-model="school_rating" min="1" max="10" style='width:{{"school_rating".length/2}}em;' class="form-control"></td>
+      <td>+</td>
+      <td><input type="number" ng-model="placement_of_neighborhood" min="1" max="10" style='width:{{"placement_of_neighborhood".length/2}}em;' class="form-control"></td>
+    </tr>
+  </table>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped text-info">
+    <tr>
+      <td><b>Equity Score (Flip/Rent)</b></td>
+      <td>:</td>
+      <td>Rent (exclude "Quality of Comparables" from the equity score)</td>
+      <td>Flip (exclude "Occupancy Status" from equity score)</td>
+    </tr>
+    <tr>
+      <td>{{flip_or_rent_equity_score()}}</td>
+      <td>:</td>
+      <td><input type="radio" ng-model="flip_rent_type" value="rent"></td>
+      <td><input type="radio" ng-model="flip_rent_type" value="flip"></td>
+    </tr>
+  </table>
+</div>
+
+</div>
+
+</body></html>

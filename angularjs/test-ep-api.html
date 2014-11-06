@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test EP API</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script> 
+  <script>
+    var app = angular.module("TestEPAPIApp", []);
+   
+    app.controller("TestEPAPIController", function($scope, $http) {
+      $scope.ef_base_url = 'http://localhost';
+      $scope.add_goal_url = 'http://localhost/ajax/goal/add';
+      $scope.add_goal_result = '?';
+    
+      $http.get($scope.add_goal_url).then(function(response) {
+
+      });
+      /*
+      $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+      $http.post($scope.add_goal_url, {msg: 'hi'}).then(function(response) {
+        $scope.add_goal_result = 'fired';
+        }, 
+        function(response) {
+          alert('failed');
+        });
+      */
+    });
+  </script>
+  <style>
+  </style>
+</head>
+<body>
+
+<div ng-app="TestEPAPIApp" ng-controller="TestEPAPIController" class="container">
+  <div>{{add_goal_result}}</div>
+</div>
+
+</body></html>

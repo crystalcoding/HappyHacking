@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Where's Waldo?</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script> 
+  <script>
+    var app = angular.module("WaldoApp", []);
+   
+    app.controller("WaldoController", function($scope) {
+
+      var canvas = document.getElementById('board');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+
+      var x = Math.floor(Math.random() * (1000 - 0)) + 0;
+      var y = Math.floor(Math.random() * (600 - 0)) + 0
+      imageObj.onload = function() {
+        context.drawImage(imageObj, x, y);
+      };
+
+      var maps = ['http://sandbox.fightbaddesign.com/sites/default/files/waldo01.jpg',
+                  'http://sandbox.fightbaddesign.com/sites/default/files/waldo02.jpg',
+                  'http://sandbox.fightbaddesign.com/sites/default/files/waldo03.jpg',
+                  'http://sandbox.fightbaddesign.com/sites/default/files/waldo04.jpg',
+                  'http://sandbox.fightbaddesign.com/sites/default/files/waldo05.jpg'];
+                   
+      $scope.map = maps[Math.floor(Math.random() * (5 - 0)) + 0];
+      imageObj.src = 'http://sandbox.fightbaddesign.com/sites/default/files/waldo.gif';
+
+      var c=document.getElementById("board");
+      var ctx=c.getContext("2d");
+      context.beginPath();
+      context.arc(x+25, y+50 ,50,0,2*Math.PI);
+      context.strokeStyle = '#ff0000';
+      context.lineWidth = 10;
+      context.stroke();
+
+      $scope.total = 0;
+      $scope.counter = 0;
+      $scope.dot = "_";
+
+      $scope.updateCounter = function() {
+        $scope.counter += 1;
+        $scope.dot += "_";
+
+        if ($scope.counter == $scope.total) {
+          $scope.show_images = true;
+        }
+      }
+
+      $scope.show_images = false;
+
+    });
+
+    app.directive('imageonload', function() {
+      return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element.bind('load', function() {
+                scope.$apply(function() {
+                  scope.updateCounter();
+                });
+            });
+        }
+      }
+    });
+
+
+  </script>
+
+</head>
+<body ng-app="WaldoApp" ng-controller="WaldoController" style="background-image:url({{map}});background-size: 100%">
+
+<div class="container">
+  <canvas id="board" width="1024" height="768"></canvas>
+
+</div>
+
+</body></html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Loading</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script> 
+  <script>
+    var app = angular.module("LoadImageApp", []);
+   
+    app.controller("LoadImageController", function($scope) {
+      $scope.sf_base_url = 'http://sf.fightbaddesign.com/sites/default/files/';
+      $scope.sf_images = ['approach-cha-thumb.png', 'HH-artist-page-ipad.jpg', 'interface-design-small.jpg', 'ninja-admin-edit.png', 'ninja-script-text.png', 'approach-ep-thumb.png', 'HH-artist-page-iphone.jpg', 'LB-case-study-feature.jpg', 'ninja-analytics.png', 'ninja-services.png', 'approach-grm-thumb.png', 'hh-banner_0.jpg', 'LB-case-study-teaser.jpg', 'ninja-background-texture.png', 'ninja-stats-graphic.png', 'approach-hh-thumb.png', 'hh-banner_1.jpg', 'LB-fedex.png', 'ninja-banner.jpg', 'oprahs-bees.gif', 'approach-ninja-thumb.png', 'hh-banner.jpg', 'LB-homepage-screen.jpg', 'ninja-banner-logo.png', 'personal-digital-experience_0.jpg', 'approach-ucf-thumb.png', 'hh-banner-logo_0.png','LB-logo.png', 'ninja-cards-graphic.png', 'bg-about-us-intro_0.jpg', 'hh-banner-logo.png', 'LB-model-comparison-screen.jpg', 'NINJA-cards-outlines.png', 'result numbers.jpg', 'bg-hh-cracks-in-armor.jpg', 'HH-case-study-teaser.jpg', 'LB-old-site.jpg', 'NINJA-cards.png', 'rhino-dj.jpg', 'bg-hh-intro.jpg','HH-chart1.png', 'LB-pattern-bg.jpg', 'NINJA-case-study-teaser.jpg', 'RUDE.gif', 'bg-hh-photo-feature.jpg', 'HH-chart2.png', 'LB-plans-bg.jpg', 'ninja-contact.png', 'screenshot-hh-old.jpg', 'bg-hh-rebirth-intro.jpg', 'HH-chris-response-to-responsive.png',   'LB-product-features-screen.jpg'];
+
+      $scope.sf_images.sort(function (){
+        return 0.5 - Math.random();
+      });
+      
+      $scope.total = $scope.sf_images.length;
+      $scope.counter = 0;
+      $scope.dot = "_";
+
+      $scope.updateCounter = function() {
+        $scope.counter += 1;
+        $scope.dot += "_";
+
+        if ($scope.counter == $scope.total) {
+          $scope.show_images = true;
+        }
+      }
+
+      $scope.show_images = false;
+
+    });
+
+    app.directive('imageonload', function() {
+      return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element.bind('load', function() {
+                scope.$apply(function() {
+                  scope.updateCounter();
+                });
+            });
+        }
+      }
+    });
+
+  </script>
+  <style>
+    body {
+      background-color: #777;
+    }
+    .dot {
+      background-color: #333;
+      padding: 15px 50px;
+    }
+    .text {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div ng-app="LoadImageApp" ng-controller="LoadImageController" class="container">
+      
+
+    <div ng-model="counter" class="text"><h2>{{counter}} of {{total}}</h2></div>
+    <span class="dot" ng-model="dot">{{dot}}</span>
+
+   <div ng-show="show_images">    
+     <ul class="thumbnails">
+       <li class="row-fluid img-rounded img-thumbnail" ng-repeat="sf_image in sf_images"><img width="70" height="70" ng-src="{{sf_base_url}}{{sf_image}}" imageonload /></li>
+     </ul>
+  </div>
+
+</div>
+
+</body></html>

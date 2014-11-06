@@ -1,0 +1,117 @@
+<?php
+
+//Initialize variables
+$after_repair_value = NULL;
+$investor_price = NULL;
+$closing_costs_to_buy = NULL;
+$rehab_projection = NULL;
+$property_insurance = NULL;
+$utilities = NULL;
+$closing_costs_to_sell = NULL;
+$realtor_commission = NULL;
+$rental_income = NULL;
+$property_insurance_annual = NULL;
+$estimated_taxes_annual = NULL;
+$property_management = NULL;
+$maintenance = NULL;
+$hoa_dues = NULL;
+$expense = NULL;
+$total_projected_profit = NULL;
+$one_time_expense = NULL;
+$annual_expense = NULL;
+$projected_income = NULL;
+$ROI = NULL;
+$net_annual_yield = NULL;
+$TWELVE_MONTHS = 12;
+
+//Update the variables if they are retriable through field_get_items()
+if ($all_items = field_get_items("node", $entity, 'field_after_repair_value')) {
+  $after_repair_value = $all_items[0]['value'];
+}
+
+if ($all_items = field_get_items("node", $entity, 'field_investor_price')) {
+  $investor_price = $all_items[0]['value'];
+}
+
+if ($all_items = field_get_items("node", $entity, 'field_closing_costs_to_buy')) {
+  $closing_costs_to_buy = $all_items[0]['value'];
+}
+
+if ($all_items = field_get_items("node", $entity, 'field_rehab_projection')) {
+  $rehab_projection = $all_items[0]['value'];
+}
+
+
+if ($all_items = field_get_items("node", $entity, 'field_property_insurance')) {
+  $property_insurance = $all_items[0]['value'];
+}
+
+if ($all_items = field_get_items("node", $entity, 'field_utilities')) {
+  $utilities = $all_items[0]['value'];
+}
+
+if ($all_items = field_get_items("node", $entity, 'field_closing_costs_to_sell')) {
+  $closing_costs_to_sell = $all_items[0]['value'];
+}
+
+if ($all_items = field_get_items("node", $entity, 'field_realtor_commission')) {
+  $realtor_commission = $all_items[0]['value'];
+}
+
+if ($all_items = field_get_items("node", $entity, 'field_rental_income_per_month')) {
+  $rental_income = $all_items[0]['value'];
+}
+
+if ($all_items = field_get_items("node", $entity, 'field_property_insurance_year')) {
+  $property_insurance_annual = $all_items[0]['value'];
+}
+
+if ($all_items = field_get_items("node", $entity, 'field_estimated_taxes_year')) {
+  $estimated_taxes_annual = $all_items[0]['value'];
+}
+
+if ($all_items = field_get_items("node", $entity, 'field_property_management_year')) {
+  $property_management = $all_items[0]['value'];
+}
+
+if ($all_items = field_get_items("node", $entity, 'field_maintenance_year')) {
+  $maintenance = $all_items[0]['value'];
+}
+
+if ($all_items = field_get_items("node", $entity, 'field_hoa_dues_year')) {
+  $hoa_dues = $all_items[0]['value'];
+}
+
+//Calculation
+$expense = $investor_price + $closing_costs_to_buy + $rehab_projection + $property_insurance + $utilities + $closing_costs_to_sell + $realtor_commission;
+$total_projected_profit = $after_repair_value - $expense;
+$one_time_expense = $investor_price + $closing_costs_to_buy + $rehab_projection + $property_insurance + $utilities;
+$annual_expense = $property_insurance_annual + $estimated_taxes_annual + $property_management + $maintenance + $hoa_dues;
+$projected_income = $TWELVE_MONTHS * $rental_income - $annual_expense;
+
+//Divide by 0 check for ROI and Net Annual Yield
+if (!($expense==NULL) && !($expense==0)) {
+  $ROI = $total_projected_profit / $expense;
+}
+
+if (!($one_time_expense==NULL) && !($one_time_expense==0)) {
+  $net_annual_yield = $projected_income / $one_time_expense;
+}
+
+//equity score
+$quality_of_comparables = $entity->field_quality_of_comparables['und'][0]['value'];
+$occupancy_status = $entity->field_occupancy_status['und'][0]['value'];
+$level_of_rehab = $entity->field_level_of_rehab['und'][0]['value'];
+$location_of_neighborhood = $entity->field_location_of_neighborhood['und'][0]['value'];
+$quality_of_floor_plan = $entity->field_quality_of_floor_plan['und'][0]['value'];
+$scool_rating = $entity->field_school_rating['und'][0]['value'];
+$placement_of_neighborhood = $entity->field_placement_of_neighborhood['und'][0]['value'];
+$deal_recommendation = $entity->field_deal_recommendation['und'][0]['value'];
+$all_equity_score = $quality_of_comparables + $occupancy_status + $level_of_rehab + $location_of_neighborhood + $quality_of_floor_plan + $scool_rating + $placement_of_neighborhood; 
+if ($deal_recommendation == 'Rent') {
+  $equity_score = $all_equity_score - $quality_of_comparables;
+}
+if ($deal_recommendation == 'Flip') {
+  $equity_score = $all_equity_score - $occupancy_status;
+}
+?>

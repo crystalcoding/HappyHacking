@@ -1,0 +1,7 @@
+Array ( [und] => Array ( [0] => Array ( [value] => 11 ) ) ) 
+
+
+$value = NULL;
+if ($all_items = field_get_items("node", $entity, 'field_after_repair_value')) {
+  $value = $all_items[0]['value'];
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDM WHOIS Info</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+    var app = angular.module("PDMWhoisApp", []);
+
+    app.controller("WhoisController", function($scope, $http, $resource) {
+      //Initialization
+      $scope.service_base = 'http://cms.riselabs.com:7777/whois/';
+      $scope.urls = ['pdmanesthesia.com', 'pdmanesthesia.net', 'pdmanesthesia.org', 'pdm-medical.com', 'pdm-medical.org', ' pdmmedical.org', 'jlrmedical.com'];
+
+      $scope.names = "yeah";
+
+//$scope.request_url = 'http://www.w3schools.com/website/Customers_JSON.php';
+$scope.request_url = 'http://cms.riselabs.com:7777/whois/pdmanesthesia.com/';
+$http({method: 'GET', url: $scope.request_url}).
+  success(function(data, status, headers, config) {
+    alert(status);
+     $scope.names = data;
+  }).
+  error(function(data, status, headers, config) {
+     alert(status);
+     $scope.names = data;
+  });
+
+    });
+
+    $scope.doc = $resource('http://cms.riselabs.com:7777/whois/pdmanesthesia.com/');
+    alert($scope.doc);
+    
+    
+  </script>
+</head>
+<body>
+
+<div ng-app="PDMWhoisApp" ng-controller="WhoisController" class="container">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <tr>
+        <td><b>Domain</b></td>
+        <td>Admin</td>
+        <td>Tech</td>
+        <td>registrant</td>
+     </tr>
+     <tr ng-repeat="url in urls">
+        <td>{{url}}</td>
+        <td>{{data}}</td>
+        <td></td>
+        <td></td>
+     </tr>
+   </table>
+  </div>
+
+
+ <div>names: {{ names }}
+
+</div>
+
+</body></html>
