@@ -1,0 +1,13 @@
+Binary Code Decimal (BCD) Adder.
+
+This is a tool that helps you add two decimals as BCD.
+
+Why is it useful?
+
+Double and Float sometimes do not meet the requirement of precision. For double, you don't get more than 17 digits.
+
+With this BCD adder, you can input number of integer length 4 x1 0^18
+
+Source: https://github.com/crystalcoding/HappyHacking/tree/master/BCD/bcd_gui
+
+Download (windows binary): http://dl.dropbox.com/u/58798915/release-BCD-v0.9.zip
