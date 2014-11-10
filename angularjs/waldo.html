@@ -8,60 +8,90 @@
     var app = angular.module("WaldoApp", []);
    
     app.controller("WaldoController", function($scope) {
+      var worlds = ['http://sandbox.fightbaddesign.com/sites/default/files/waldo000.png',
+                  'http://sandbox.fightbaddesign.com/sites/default/files/waldo001.png',
+//                  'http://sandbox.fightbaddesign.com/sites/default/files/waldo002.png',
+                  'http://sandbox.fightbaddesign.com/sites/default/files/waldo003.png',
+                  'http://sandbox.fightbaddesign.com/sites/default/files/waldo004.png'];
 
       var canvas = document.getElementById('board');
       var context = canvas.getContext('2d');
-      var imageObj = new Image();
+      var worldImage = new Image();
 
-      var x = Math.floor(Math.random() * (1000 - 0)) + 0;
-      var y = Math.floor(Math.random() * (600 - 0)) + 0
-      imageObj.onload = function() {
-        context.drawImage(imageObj, x, y);
+      worldImage.onload = function() {
+        context.drawImage(worldImage, 0, 0);
       };
 
-      var maps = ['http://sandbox.fightbaddesign.com/sites/default/files/waldo01.jpg',
-                  'http://sandbox.fightbaddesign.com/sites/default/files/waldo02.jpg',
-                  'http://sandbox.fightbaddesign.com/sites/default/files/waldo03.jpg',
-                  'http://sandbox.fightbaddesign.com/sites/default/files/waldo04.jpg',
-                  'http://sandbox.fightbaddesign.com/sites/default/files/waldo05.jpg'];
-                   
-      $scope.map = maps[Math.floor(Math.random() * (5 - 0)) + 0];
-      imageObj.src = 'http://sandbox.fightbaddesign.com/sites/default/files/waldo.gif';
+      $scope.index = Math.floor(Math.random() * (worlds.length - 0)) + 0;
+//      $scope.index = 2;
+      $scope.world = worlds[$scope.index];
+      worldImage.src = $scope.world;
 
-      var c=document.getElementById("board");
-      var ctx=c.getContext("2d");
-      context.beginPath();
-      context.arc(x+25, y+50 ,50,0,2*Math.PI);
-      context.strokeStyle = '#ff0000';
-      context.lineWidth = 10;
-      context.stroke();
-
-      $scope.total = 0;
-      $scope.counter = 0;
-      $scope.dot = "_";
-
-      $scope.updateCounter = function() {
-        $scope.counter += 1;
-        $scope.dot += "_";
-
-        if ($scope.counter == $scope.total) {
-          $scope.show_images = true;
-        }
+      $scope.coordinate = [0, 0];
+      switch($scope.index) {
+        case 0:
+          $scope.coordinate = [440, 235];
+          break;
+        case 1:
+          $scope.coordinate = [500, 285];
+          break;
+//        case 2:
+//          $scope.coordinate = [245, 285];
+//          break;
+        case 2:
+          $scope.coordinate = [100, 630];
+          break;
+        case 3:
+          $scope.coordinate = [245, 285];
+          break;
       }
 
-      $scope.show_images = false;
+      $scope.flip = 0;
+      $scope.draw_circle = function() {
+        if ($scope.flip == 0) {
 
-    });
+          switch($scope.index) {
+            case 0:
+              $scope.coordinate = [440, 235];
+              break;
+            case 1:
+              $scope.coordinate = [500, 285];
+              break;
+//          case 2:
+//            $scope.coordinate = [245, 285];
+//            break;
+            case 2:
+              $scope.coordinate = [100, 630];
+              break;
+            case 3:
+              $scope.coordinate = [245, 285];
+              break;
+          }
+          var c = document.getElementById("board");
+          var ctx = c.getContext("2d");
+          context.beginPath();
+          context.arc($scope.coordinate[0], $scope.coordinate[1], 50, 0, 2*Math.PI)
+          context.strokeStyle = '#ff0000';
+          context.lineWidth = 10;
+          context.stroke();
+          $scope.flip = 1;
+        } else {
+//          var canvas = document.getElementById('board');
+//          var context = canvas.getContext('2d');
 
-    app.directive('imageonload', function() {
-      return {
-        restrict: 'A',
-        link: function(scope, element, attrs) {
-            element.bind('load', function() {
-                scope.$apply(function() {
-                  scope.updateCounter();
-                });
-            });
+          var oldIndex = $scope.index;
+          while (true) {
+            var newIndex = Math.floor(Math.random() * (worlds.length - 0)) + 0;
+            if (oldIndex != newIndex) {
+              $scope.index = newIndex;
+              break;
+            }
+          }
+          $scope.world = worlds[$scope.index];
+          worldImage.src = $scope.world;
+
+          context.drawImage(worldImage, 0, 0);
+          $scope.flip = 0;
         }
       }
     });
@@ -70,11 +100,11 @@
   </script>
 
 </head>
-<body ng-app="WaldoApp" ng-controller="WaldoController" style="background-image:url({{map}});background-size: 100%">
+<!--<body ng-app="WaldoApp" ng-controller="WaldoController" style="background-image:url({{map}});background-size: 100%">-->
+<body ng-app="WaldoApp" ng-controller="WaldoController">
 
 <div class="container">
-  <canvas id="board" width="1024" height="768"></canvas>
-
+  <canvas id="board" ng-click="draw_circle()" width="1024" height="768"></canvas>
 </div>
 
 </body></html>
