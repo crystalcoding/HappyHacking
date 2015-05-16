@@ -4,10 +4,29 @@
 #include <cstdlib>
 #include <iostream>
 #include "mongo/client/dbclient.h" // for the driver
+#include "mongo/bson/bson.h"
+
+#include <memory> //auto_ptr
 
 void run() {
   mongo::DBClientConnection c;
-  c.connect("localhost");
+
+  std::string error;
+  c.connect("ds031832.mongolab.com:31832");
+  bool yes = c.auth("secondform_dream_list", "secondform", "gogosecondform1!", error, true);
+  //c.connect("localhost");
+
+  //connect("ds031832.mongolab.com:3283dfdfdfdfdasfs
+
+  std::auto_ptr<mongo::DBClientCursor> cursor =
+       //c.query("secondform_dream_list.secondform_dream_list", MONGO_QUERY());
+          c.query("secondform_dream_list.secondform_dream_list", mongo::BSONObj());
+          //c.query("secondform_dream_list", MONGO_QUERY(""));
+   while (cursor->more()) {
+       mongo::BSONObj p = cursor->next();
+       std::cout << p.getStringField("ORGANIZATION") << std::endl;
+   }
+
 }
 
 int main(int argc, char *argv[])
