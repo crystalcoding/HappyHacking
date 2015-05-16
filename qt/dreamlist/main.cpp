@@ -13,10 +13,11 @@ void run() {
 
   std::string error;
   c.connect("ds031832.mongolab.com:31832");
+
   bool yes = c.auth("secondform_dream_list", "secondform", "gogosecondform1!", error, true);
   //c.connect("localhost");
 
-  //connect("ds031832.mongolab.com:3283dfdfdfdfdasfs
+
 
   std::auto_ptr<mongo::DBClientCursor> cursor =
        //c.query("secondform_dream_list.secondform_dream_list", MONGO_QUERY());
