@@ -27,6 +27,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->tableWidget, &QTableWidget::itemSelectionChanged,
             this, &MainWindow::copyToClipboard);
+
+    QFile file("://dream_list.txt");
+    if (file.open(QFile::ReadOnly)) {
+        QTextStream in(&file);
+        ui->textEdit->setText(in.readAll());
+    }
 }
 
 MainWindow::~MainWindow()

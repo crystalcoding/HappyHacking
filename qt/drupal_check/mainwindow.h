@@ -17,6 +17,8 @@
 #include <QKeyEvent>
 #include <QDialog>
 #include <QMessageBox>
+#include <QFile>
+#include <QTextStream>
 #include <site.h>
 
 namespace Ui {

@@ -11,10 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Are Those Sites Drupal?</string>
+   <string>Dream List Checker</string>
   </property>
   <property name="windowOpacity">
-   <double>0.500000000000000</double>
+   <double>0.950000000000000</double>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(0, 115, 186);</string>
@@ -121,7 +121,7 @@ color: rgb(255, 170, 127);</string>
      <rect>
       <x>30</x>
       <y>20</y>
-      <width>291</width>
+      <width>411</width>
       <height>18</height>
      </rect>
     </property>
