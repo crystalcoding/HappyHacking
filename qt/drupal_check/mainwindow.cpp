@@ -90,8 +90,12 @@ void MainWindow::reportYesNo()
         QTableWidgetItem *item = ui->tableWidget->item(row, 1);
         if (this->sites[row].isDrupal) {
             item->setText("Yes");
+            item->setBackground(QBrush(Qt::blue));
+            item->setTextColor(Qt::green);
         } else {
             item->setText("No");
+            item->setBackground(QBrush(Qt::darkRed));
+            item->setTextColor(Qt::red);
         }
     }
     ui->tableWidget->resizeColumnsToContents();

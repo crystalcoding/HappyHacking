@@ -20,3 +20,5 @@ HEADERS  += mainwindow.h \
     site.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES = resources.qrc
