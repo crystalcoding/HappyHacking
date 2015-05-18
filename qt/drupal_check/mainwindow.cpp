@@ -18,6 +18,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QStringList header;
     header << "WEBSITE URL" << "DRUPAL?" << "Powered By";
     ui->tableWidget->setHorizontalHeaderLabels(header);
+    ui->tableWidget->horizontalHeader()->setStyleSheet("background-color: #3499d5");
+    ui->tableWidget->verticalHeader()->setStyleSheet("background-color: #3499d5");
     //ui->tableWidget->installEventFilter(this);
 
     ui->textEdit_2->hide();
@@ -178,6 +180,7 @@ void MainWindow::on_pushButton_clicked()
     QStringList header;
     header << "WEBSITE URL" << "DRUPAL?" << "Powered By";
     ui->tableWidget->setHorizontalHeaderLabels(header);
+
     //ui->tableWidget->setRowCount(10);
     //ui->tableWidget->setColumnCount(3);
     ui->tableWidget->setRowCount(this->sites.count());
