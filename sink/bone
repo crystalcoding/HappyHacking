@@ -1,0 +1,16 @@
+http://elinux.org/BeagleBoardUbuntu#Demo_Image
+
+create a partition so it becomes a "disk"
+fdisk
+sudo ./setup_sdcard.sh --mmc /dev/sdc --uboot bone 
+
+connect with usb to your computer
+screen /dev/ttyUSB1 115200
+(then hit enter!)
+Default user: ubuntu pass: temppwd 
+
+Ethernet: "sudo ifconfig -a" and "sudo dhclient usb1" or "sudo dhclient eth0"
+Wireless: http://elinux.org/BeagleBoardUbuntu#Wifi_Networking_.28command_line.29
+
+sudo apt-get update
+sudo apt-get install xfce4 gdm xubuntu-artwork xserver-xorg-video-omap3 network-manager

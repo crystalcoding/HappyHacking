@@ -1,0 +1,28 @@
+2015-05-12 00:51:47  [11815] [BEGIN] [databaseId:0]
+2015-05-12 00:51:47  [11815] SELECT "id", "title", "body", "created_at", "updated_at", "lock_revision" FROM blog
+2015-05-12 00:51:47  [11815] [COMMIT] [databaseId:0]
+2015-05-12 01:11:23  [11872] [BEGIN] [databaseId:0]
+2015-05-12 01:11:23  [11872] INSERT INTO blog ("title", "body", "created_at", "updated_at", "lock_revision") VALUES ('t', 't', '2015-05-12T01:11:23', '2015-05-12T01:11:23', 1)
+2015-05-12 01:11:23  [11872] [COMMIT] [databaseId:0]
+2015-05-12 01:11:23  [11872] [BEGIN] [databaseId:0]
+2015-05-12 01:11:23  [11872] SELECT "id", "title", "body", "created_at", "updated_at", "lock_revision" FROM blog WHERE id=1 LIMIT 1
+2015-05-12 01:11:23  [11872] [COMMIT] [databaseId:0]
+2015-05-12 01:11:26  [11872] [BEGIN] [databaseId:0]
+2015-05-12 01:11:26  [11872] SELECT "id", "title", "body", "created_at", "updated_at", "lock_revision" FROM blog
+2015-05-12 01:11:26  [11872] [COMMIT] [databaseId:0]
+2015-05-12 01:11:28  [11872] [BEGIN] [databaseId:0]
+2015-05-12 01:11:28  [11872] SELECT "id", "title", "body", "created_at", "updated_at", "lock_revision" FROM blog WHERE id=1 LIMIT 1
+2015-05-12 01:11:28  [11872] [COMMIT] [databaseId:0]
+2015-05-12 01:11:30  [11872] [BEGIN] [databaseId:0]
+2015-05-12 01:11:30  [11872] SELECT "id", "title", "body", "created_at", "updated_at", "lock_revision" FROM blog WHERE id=1 LIMIT 1
+2015-05-12 01:11:30  [11872] [COMMIT] [databaseId:0]
+2015-05-12 01:11:32  [11872] [BEGIN] [databaseId:0]
+2015-05-12 01:11:32  [11872] SELECT "id", "title", "body", "created_at", "updated_at", "lock_revision" FROM blog WHERE id=1 AND lock_revision=1 LIMIT 1
+2015-05-12 01:11:32  [11872] UPDATE blog SET updated_at='2015-05-12T01:11:32', lock_revision=2 WHERE lock_revision=1 AND id=1
+2015-05-12 01:11:32  [11872] [COMMIT] [databaseId:0]
+2015-05-12 01:11:32  [11872] [BEGIN] [databaseId:0]
+2015-05-12 01:11:32  [11872] SELECT "id", "title", "body", "created_at", "updated_at", "lock_revision" FROM blog WHERE id=1 LIMIT 1
+2015-05-12 01:11:32  [11872] [COMMIT] [databaseId:0]
+2015-05-12 01:11:33  [11872] [BEGIN] [databaseId:0]
+2015-05-12 01:11:33  [11872] SELECT "id", "title", "body", "created_at", "updated_at", "lock_revision" FROM blog
+2015-05-12 01:11:33  [11872] [COMMIT] [databaseId:0]

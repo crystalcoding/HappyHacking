@@ -51,7 +51,7 @@ HelloApplication::HelloApplication(const WEnvironment& env)
 
   WPushButton *button
     = new WPushButton("Greet me.", root());              // create a button
-  button->setMargin(5, Left);                            // add 5 pixels margin
+  button->setMargin(20, Left);                            // add 5 pixels margin
 
   root()->addWidget(new WBreak());                       // insert a line break
 

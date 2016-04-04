@@ -1,1 +1,10 @@
 convert * -resize "600x600!" -quality 100 house%03d.png 
+
+for file in *.JPG; do convert $file -resize "600x600!" -quality 100 $file-t341; done
+
+
+
+for file in *.JPG; do convert -geometry 341x $file t341-$file; done
+
+
+

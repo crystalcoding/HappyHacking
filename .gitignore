@@ -1,1 +1,11 @@
 .DS_Store
+*~
+*.pyc
+build-*-Debug
+build-*-Release
+iOS_Games_by_Tutorials_v_2.2.zip
+iOS Games by Tutorials Second Edition
+The_iOS_Apprentice_1_Getting_Started_v3.2.zip
+angularjs/images
+treefrog-framework
+oreilly
