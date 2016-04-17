@@ -72,6 +72,21 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
     
+
+    auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+    audio->playBackgroundMusic("tot.ogg", false);
+    this->playing = true;
+
+
+    auto listener1 = EventListenerTouchOneByOne::create();
+    //TODO: get lambada passing the this variable
+    //listener1->onTouchBegan = [this](Touch* touch, Event* event){
+    listener1->onTouchBegan = [this](auto touch, auto event){
+      this->play_toggle();
+      return true; // if you are consuming it
+    };
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this);
+
     return true;
 }
 
@@ -83,4 +98,24 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
+}
+
+void HelloWorld::play_music()
+{
+  std::cout << "play!" << std::endl;
+
+  // set the background music and continuously play it.
+}
+
+void HelloWorld::play_toggle()
+{
+      std::cout << "Touched" << std::endl;
+      auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+      if (this->playing) {
+	audio->pauseBackgroundMusic();
+      } else {
+	audio->resumeBackgroundMusic();
+      }
+      this->playing = !this->playing;
+      std::cout << this->playing << std::endl;
 }
