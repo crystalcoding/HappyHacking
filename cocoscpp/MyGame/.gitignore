@@ -1,0 +1,4 @@
+bin/*
+cocos2d/cocos/platform/*
+linux-build/*
+proj.android/*
